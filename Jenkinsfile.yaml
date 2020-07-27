@@ -1,0 +1,18 @@
+pipeline:
+  agent:
+    none:
+  stages:
+    - stage: "build"
+      steps:
+        - echo "built"
+    - stage: "test"
+      parallel:
+        - stage: "unit test"
+          steps:
+            - echo "unit test passed"
+        - stage: "intergration test"
+          steps:
+            - echo "unit test passed"
+    - stage: "deploy"
+      steps:
+        - echo "deployed"
